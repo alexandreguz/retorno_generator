@@ -6,9 +6,8 @@ defmodule RemessaParser do
     |> Enum.reverse()
     |> List.delete_at(0)
     |> Enum.reverse()
-    |> Enum.map(fn remessa_line -> RetornoGenerator.generate(remessa_line) end)
+    |> Stream.with_index()
+    |> Enum.map(fn {remessa_line, index} -> RetornoGenerator.generate(remessa_line, index) end)
     |> Enum.join("\n")
    end
 end
-
-
