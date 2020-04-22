@@ -9,7 +9,7 @@
       dac_nosso_numero = String.slice(remessa, 28..28)
       blanks_3 = String.duplicate(" ", 13)
       codigo_da_carteira = "I"
-      codigo_de_ocorrencia_variavel = "%%"
+      codigo_de_ocorrencia_variavel = "02" # 02 - entrada, 03 - rejeitado, 06 - liquidado, 14 - vencimento alterado,
       today = Date.utc_today
       day = today.day |> Integer.to_string() |> String.pad_leading(2, "0")
       month = today.month |> Integer.to_string() |> String.pad_leading(2, "0")
@@ -20,10 +20,10 @@
       blanks_4 = String.duplicate(" ", 12)
       due_date = String.slice(remessa, 121..126)
       value = String.slice(remessa, 126..138)
-      bank_code = "%%%"
-      branch = "%%%%"
-      dac_branch = "%"
-      kind = "%%"
+      bank_code = "001"
+      branch = "3421"
+      dac_branch = "5"
+      kind = "05"
       zeros_1 = String.duplicate("0", 78)
       main_value = String.slice(remessa, 126..138)
       zeros_2 = String.duplicate("0", 26)
@@ -32,7 +32,7 @@
       zeros_3 = String.duplicate("0", 23)
       sacado_name = String.slice(remessa, 234..263)
       blanks_6 = String.duplicate(" ", 38)
-      liquidation_code = "%%"
+      liquidation_code = "B3" # This can vary but is not important
       senquencial_number = (index  + 1) |> Integer.to_string() |> String.pad_leading(5, "0")
 
 
